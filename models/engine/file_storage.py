@@ -85,7 +85,8 @@ class FileStorage:
                     elif class_name == "Review":
                         self.__objects[key] = Review(**value_obj_dict)
                     else:
-                        self.__objects[key] = eval(value_obj_dict["__class__"])(**value_obj_dict)
+                        _class_name_ = eval(value_obj_dict["__class__"])
+                        self.__objects[key] = _class_name_(**value_obj_dict)
         except FileNotFoundError:
             pass
 

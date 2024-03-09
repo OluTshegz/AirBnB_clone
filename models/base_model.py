@@ -3,8 +3,10 @@
 """
 Module-level documentation for the script.
 
-This script imports necessary modules and packages required for the application.
+This script imports necessary modules and
+packages required for the application.
 """
+
 import uuid
 from datetime import datetime
 import models
@@ -16,9 +18,12 @@ class BaseModel:
 
     Attributes:
         id (str): The unique identifier for the instance.
-        created_at (datetime): The timestamp of when the instance was created.
-        updated_at (datetime): The timestamp of when the instance was last updated.
+        created_at (datetime): The timestamp of when
+            the instance was created.
+        updated_at (datetime): The timestamp of when
+            the instance was last updated.
     """
+
     def __init__(self, *args, **kwargs):
         """
         Initializes a new instance of the BaseModel class.
@@ -36,7 +41,9 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key != "__class__":
                     if key == "created_at" or key == "updated_at":
-                        value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                        # Corrected indentation for the line below
+                        value = datetime.strptime(
+                            value, "%Y-%m-%dT%H:%M:%S.%f")
                     setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
@@ -49,7 +56,8 @@ class BaseModel:
         Updates the updated_at timestamp and saves the instance to the storage.
 
         Note:
-            This method updates the updated_at attribute to the current timestamp
+            This method updates the updated_at
+            attribute to the current timestamp
             and then saves the instance to the storage.
         """
         self.updated_at = datetime.now()
@@ -63,7 +71,8 @@ class BaseModel:
             dict: A dictionary containing the instance attributes.
 
         Note:
-            This method converts the instance attributes to a dictionary format,
+            This method converts the instance
+            attributes to a dictionary format,
             including class name and timestamp attributes in ISO format.
         """
         obj_dict = self.__dict__.copy()

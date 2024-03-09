@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""This amenity module contains Amenity class and imports class BaseModel class"""
+"""This amenity module contains Amenity class
+and imports class BaseModel class"""
 from models.base_model import BaseModel
 
 
