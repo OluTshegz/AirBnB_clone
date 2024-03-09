@@ -3,8 +3,10 @@
 """
 Module for the HBNBCommand class and related functionality.
 
-This module imports the cmd module for building interactive command-line interfaces,
-the models module for accessing storage functionality, and the split function from the shlex module.
+This module imports the cmd module for building
+interactive command-line interfaces,
+the models module for accessing storage functionality,
+and the split function from the shlex module.
 """
 import cmd
 import models
@@ -140,7 +142,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """
-        Updates an instance based on the class name and id by adding or updating attribute.
+        Updates an instance based on the class name and id
+        by adding or updating attribute.
 
         Args:
             arg (str): The arguments passed to the command.
@@ -176,8 +179,9 @@ class HBNBCommand(cmd.Cmd):
 if __name__ == '__main__':
     """
     Entry point for the program.
-    
-    If this script is run directly, it initializes and starts the HBNBCommand command-line interface
+
+    If this script is run directly, it initializes and
+    starts the HBNBCommand command-line interface
     by calling the cmdloop() method of the HBNBCommand class.
     """
     HBNBCommand().cmdloop()
