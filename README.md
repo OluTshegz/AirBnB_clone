@@ -71,9 +71,6 @@ Here are a few examples of how to use the command interpreter:
   ```shell
   (hbnb) quit
   ```
-  ```shell
-  (hbnb) exit
-  ```
 
 These are just a few examples, and there are many more commands and functionalities available in the command interpreter. Feel free to explore more commands and functionalities within the command interpreter!
 
