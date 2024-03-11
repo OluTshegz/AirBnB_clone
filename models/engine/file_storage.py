@@ -71,22 +71,8 @@ class FileStorage:
             with open(self.__file_path, "r") as file:
                 deserialized_obj_dict = json.load(file)
                 for key, value_obj_dict in deserialized_obj_dict.items():
-                    class_name, obj_id = key.split('.')
-                    if class_name == "User":
-                        self.__objects[key] = User(**value_obj_dict)
-                    elif class_name == "State":
-                        self.__objects[key] = State(**value_obj_dict)
-                    elif class_name == "City":
-                        self.__objects[key] = City(**value_obj_dict)
-                    elif class_name == "Amenity":
-                        self.__objects[key] = Amenity(**value_obj_dict)
-                    elif class_name == "Place":
-                        self.__objects[key] = Place(**value_obj_dict)
-                    elif class_name == "Review":
-                        self.__objects[key] = Review(**value_obj_dict)
-                    else:
-                        _class_name_ = eval(value_obj_dict["__class__"])
-                        self.__objects[key] = _class_name_(**value_obj_dict)
+                    object_items = eval(value_obj_dict["__class__"])
+                    self.__objects[key] = object_items(**value_obj_dict)
         except FileNotFoundError:
             pass
 
