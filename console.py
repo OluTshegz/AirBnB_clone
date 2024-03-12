@@ -60,7 +60,8 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] not in models.storage.classes():
             print("** class doesn't exist **")
         else:
-            instance = models.storage.classes()[args[0]]()
+            class_name = args[0]
+            instance = models.storage.classes()[class_name]()
             instance.save()
             print(instance.id)
 
@@ -127,14 +128,14 @@ class HBNBCommand(cmd.Cmd):
         obj = models.storage.all()
         class_instances = []
         args = split(arg)
-        class_name = args[0]
         if not args:
             for obj_id in obj:
                 class_instances.append(str(obj[obj_id]))
             print(class_instances)
-        elif class_name not in models.storage.classes():
+        elif args[0] not in models.storage.classes():
             print("** class doesn't exist **")
         else:
+            class_name = args[0]
             for obj_id in obj:
                 if obj_id.split(".")[0] == class_name:
                     class_instances.append(str(obj[obj_id]))
@@ -150,23 +151,23 @@ class HBNBCommand(cmd.Cmd):
         """
         args = split(arg)
         obj = models.storage.all()
-        class_name = args[0]
-        instance_id = args[1]
-        attribute_name = args[2]
-        attribute_value = args[3]
         if not args or len(args) < 1:
             print("** class name missing **")
-        elif class_name not in models.storage.classes():
+        elif args[0] not in models.storage.classes():
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
-        elif f"{class_name}.{instance_id}" not in obj:
+        elif f"{args[0]}.{args[1]}" not in obj:
             print("** no instance found **")
         elif len(args) < 3:
             print("** attribute name missing **")
         elif len(args) < 4:
             print("** value missing **")
         else:
+            class_name = args[0]
+            instance_id = args[1]
+            attribute_name = args[2]
+            attribute_value = args[3]
             instance_key = f"{class_name}.{instance_id}"
             instance = obj[instance_key]
             if attribute_name in instance.__dict__:
