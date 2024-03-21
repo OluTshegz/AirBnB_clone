@@ -50,6 +50,9 @@
     width: 100px;
     height: 100%;
     background-repeat: no-repeat;
+    background-position: 90% 0;
+    line-height: 120px;
+    text-align: right;
 }
 .max_guest {
     background-image: url("../images/icon_group.png");
