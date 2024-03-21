@@ -17,6 +17,7 @@
     border: 1px solid #FF5A5F;
     border-radius: 4px;
     display: inline-block;
+    top: 0;
 }
 .places article h2 {
     font-size: 30px;
@@ -62,4 +63,9 @@
 }
 .number_bathrooms {
     background-image: url("../images/icon_bath.png");
+}
+.user,
+.description {
+    text-align: left;
+    margin: 10px 0;
 }
