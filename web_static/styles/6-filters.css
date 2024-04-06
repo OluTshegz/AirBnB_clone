@@ -7,10 +7,11 @@
     background-color: white;
     height: 70px;
     width: 100%;
-    border: 1px, solid, #DDDDDD;
+    border: 1px solid #DDDDDD;
     border-radius: 4px;
     align-items: center;
     justify-content: space-between;
+    padding-right: 20px;
 }
 .filters button {
     font-size: 18px;
@@ -26,8 +27,7 @@
 .filters button:hover {
     opacity: 90%;
 }
-.locations,
-.amenities {
+.filters .locations, .filters .amenities {
     height: 100%;
     width: 25%;
     float: left;
